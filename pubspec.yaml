@@ -53,6 +53,10 @@ flutter:
     - assets/icon2.png
     - assets/icon4.png
     - assets/icon5.png
+    - assets/icquotes.png
+    - assets/imgdownArrow.png
+    - assets/imgpgd1.png
+    - assets/imgtile1.png
     - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
