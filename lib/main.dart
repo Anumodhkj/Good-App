@@ -1,4 +1,5 @@
-import 'package:GoodApp/PersonalGrowthDashboard.dart';
+// import 'package:GoodApp/PersonalGrowthDashboard.dart';
+import 'package:GoodApp/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -6,6 +7,6 @@ void main() {
   runApp( 
     MaterialApp(
        debugShowCheckedModeBanner: false,
-       home:PersonalGD(),));
+       home:Home(),));
 }
 
