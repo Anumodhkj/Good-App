@@ -1,5 +1,3 @@
-
-
 import 'package:GoodApp/PersonalGrowthDashboard.dart';
 import 'package:GoodApp/Sip.dart';
 import 'package:GoodApp/bottomSheet.dart';
@@ -254,6 +252,7 @@ class _GabState extends State<Gab> {
                     color: Color.fromRGBO(55, 71, 79, 2),
                     child: Container(height: 65,margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: ListTile(
+                        onTap: (){},
                         leading:Icon(Icons.more_time,size: 30,color: Colors.white,),
                         title: Text("Free trial for 7 days",style: TextStyle(fontWeight: FontWeight.normal,
                         color: Colors.white,

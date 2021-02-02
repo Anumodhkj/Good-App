@@ -1,5 +1,3 @@
-
-
 import 'package:GoodApp/GoodAppBundles.dart';
 import 'package:GoodApp/PersonalGrowthDashboard.dart';
 import 'package:GoodApp/bottomSheet.dart';
@@ -164,9 +162,9 @@ Positioned(top: 8,left: 78,
        body: Column(children:[
          Stack(
             children:[
-            Container(width: 500,height: 410,
+            Container(width: 500,height: 390,
             // color: Colors.red,
-            padding: EdgeInsets.fromLTRB(20,30, 20, 0),
+            padding: EdgeInsets.fromLTRB(20,22, 20, 0),
             child: Card(
                    color: Theme.of(context).canvasColor,
                    elevation: 1.5,
@@ -209,7 +207,7 @@ Positioned(top: 8,left: 78,
                                       ),
                                       Container(
                                         
-                                        width: 500,height:132,
+                                        width: 500,height:120,
                                         decoration: BoxDecoration(color: Color.fromRGBO(55, 71, 79, 2),
                                         borderRadius: BorderRadius.only(bottomLeft: const Radius.circular(20),bottomRight: const Radius.circular(20)),),
 
@@ -245,11 +243,33 @@ Positioned(top: 8,left: 78,
                       ),
                   ],),//stack closed
              
-                 
-              
+              Container(
+                  decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/manwithplant.png'))),
+                  width: 200,
+                  height: 200,
+              ),
 
-    
-                  ]//column close
+              Row(mainAxisAlignment: MainAxisAlignment.start,
+                  children:[
+                    Container(
+                  margin: EdgeInsets.fromLTRB(25, 10, 5, 0),
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children:[Text("How it works",style:TextStyle(fontSize: 18 ),),
+                      Padding(padding: EdgeInsets.only(top:5)),
+                    Text("A self improvements program will give you one task idea per day.you are free to choose program as per yours needs and perform the task at your own place."),
+                    ] ),  
+                    width: 400,
+                    height: 100,
+                ),] 
+              ),
+
+
+
+
+    ]//column close
+
+              
+                   
     ),
 
        
