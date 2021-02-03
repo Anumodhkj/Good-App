@@ -145,9 +145,9 @@ class _CardandlistState extends State<Cardandlist> {
     }
      void  visibifive(){
        setState(() {
-            rowvisifive=!rowvisifour;
+            rowvisifive=!rowvisifive;
             rowvisifour=true;
-            rowvisi=false;
+          
          
 
              rowvisione=false;
