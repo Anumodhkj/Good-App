@@ -1,7 +1,9 @@
 import 'package:GoodApp/GoodAppBundles.dart';
 import 'package:GoodApp/PersonalGrowthDashboard.dart';
+import 'package:GoodApp/Sip.dart';
 import 'package:GoodApp/bottomSheet.dart';
 import 'package:GoodApp/cardandlist.dart';
+import 'package:GoodApp/navBarButtons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
@@ -50,21 +52,7 @@ class _GoodAppState extends State<GoodApp> {
                   
                         
 
-                  Positioned(left: 3,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Icon(Icons.format_list_bulleted_sharp),
-                  onPressed: () {print("clicked Drawer");
-                                //  Navigator.push(context, 
-                                //  MaterialPageRoute(builder: (context){
-                                //    return Scaffold(drawer: Drawer(),); 
-                                //  }
-
-                                //  ));
-                                },
-                  iconSize: 30,
-                  color: Colors.white,
-                ), ),
+                  BtDrawer(),
 //  -------------------------------------
 
                          
@@ -73,7 +61,15 @@ class _GoodAppState extends State<GoodApp> {
                 IconButton(
                   splashRadius: 0.1,
                   icon: Image.asset('assets/icplant.png',width: 27,height: 27,),
-                  onPressed: () {print("clicked Button plant");},
+                  onPressed: () {print("clicked Button plant");
+                   Navigator.pushReplacement(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) => Sip(),
+                            transitionDuration: Duration(seconds: 0),
+                          ),
+                        );
+                  },
                   iconSize: 16,
                   color: Colors.white,
                 ), ),
@@ -160,6 +156,19 @@ Positioned(top: 8,left: 160,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            
+            leadingWidth: .01,
+        leading:Builder(
+      builder: (BuildContext context) {
+       return IconButton(
+         iconSize: .01,
+          icon: const Icon(Icons.arrow_drop_up),
+         onPressed: (){},
+          // { Scaffold.of(contextt).openDrawer(); },
+          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+        );
+     },
+   ),
             pinned: false,
             backgroundColor: colo,
             expandedHeight: 150,
