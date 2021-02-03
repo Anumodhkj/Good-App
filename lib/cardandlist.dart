@@ -53,13 +53,13 @@ class _CardandlistState extends State<Cardandlist> {
        setState(() {
             rowvisione=!rowvisione;
             rowvisione=true;
-            rowvisi=false;
+           
            
 
         
             rowvisi=false;
             rowvisithree=false;
-            rowvisione=false;
+            
             rowvisitwo=false;
             rowvisifour=false;
             rowvisifive=false;
