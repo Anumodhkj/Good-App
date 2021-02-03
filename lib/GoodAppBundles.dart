@@ -1,7 +1,12 @@
 import 'package:GoodApp/PersonalGrowthDashboard.dart';
 import 'package:GoodApp/Sip.dart';
 import 'package:GoodApp/bottomSheet.dart';
+
+import 'package:GoodApp/customDrawer.dart';
+import 'package:GoodApp/navBarButtons.dart';
+
 import 'package:GoodApp/goodApp.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
@@ -19,6 +24,7 @@ class _GabState extends State<Gab> {
   Widget build(BuildContext context) {
     FlutterStatusbarcolor.setNavigationBarColor(Color.fromRGBO(55, 71, 79, 2));
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(      
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
@@ -57,21 +63,9 @@ class _GabState extends State<Gab> {
                   
                         
 
-                  Positioned(left: 3,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Icon(Icons.format_list_bulleted_sharp),
-                  onPressed: () {print("clicked Drawer");
-                                //  Navigator.push(context, 
-                                //  MaterialPageRoute(builder: (context){
-                                //    return Scaffold(drawer: Drawer(),); 
-                                //  }
-
-                                //  ));
-                                },
-                  iconSize: 30,
-                  color: Colors.white,
-                ), ),
+                Positioned(left: 3,top: 8, 
+                  child: BtDrawer(),
+                 ),
 //  -------------------------------------
 
                   Positioned(left: 78,top: 8, child: 
@@ -114,12 +108,7 @@ class _GabState extends State<Gab> {
 
     Positioned(top: 8,left: 240, 
                     child:
-                   Container(
-                decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Colors.white12),
-                height: 50,
-                width: 50,
-                          ),
+                   Highlight()
                           ),
                  
                   Positioned(left: 240,top: 8, child: 
