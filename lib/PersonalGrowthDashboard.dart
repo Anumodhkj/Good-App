@@ -1,6 +1,8 @@
 import 'package:GoodApp/GoodAppBundles.dart';
 import 'package:GoodApp/Sip.dart';
 import 'package:GoodApp/bottomSheet.dart';
+import 'package:GoodApp/customDrawer.dart';
+import 'package:GoodApp/navBarButtons.dart';
 import 'package:GoodApp/smallBottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
@@ -12,12 +14,25 @@ class PersonalGD extends StatefulWidget {
 
 class _PersonalGDState extends State<PersonalGD> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext contextt) {
     // final clr = Color.fromRGBO(55, 71, 79, 2);
 
     FlutterStatusbarcolor.setNavigationBarColor(Color.fromRGBO(55, 71, 79, 2));
     return Scaffold(
+      drawer: CustomDrawer(),
       appBar: AppBar(
+        leadingWidth: .01,
+        leading:Builder(
+      builder: (BuildContext context) {
+       return IconButton(
+         iconSize: .01,
+          icon: const Icon(Icons.arrow_drop_up),
+         onPressed: () { Scaffold.of(contextt).openDrawer(); },
+          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+        );
+     },
+   ),
+        
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
         backgroundColor: Color.fromRGBO(55, 71, 79, 2),
@@ -55,6 +70,9 @@ class _PersonalGDState extends State<PersonalGD> {
         mini: true,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+
+  //__________________________________BOTTOM NAVIGATION BAR ______________________________//
+
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 1.0,
@@ -67,55 +85,26 @@ class _PersonalGDState extends State<PersonalGD> {
             Container(
               child: Stack(
                 children: [
-                  Positioned(
-                    left: 3,
-                    top: 8,
-                    child: IconButton(
-                      splashRadius: 0.1,
-                      icon: Icon(Icons.format_list_bulleted_sharp),
-                      onPressed: () {
-                        print("clicked Drawer");
-                        //  Navigator.push(context,
-                        //  MaterialPageRoute(builder: (context){
-                        //    return Scaffold(drawer: Drawer(),);
-                        //  }
 
-                        //  ));
-                      },
-                      iconSize: 30,
-                      color: Colors.white,
-                    ),
-                  ),
-//  -------------------------------------
+ //_________________________________BOTTOM NAVIGATION BAR BUTTONS________________________________//
 
-                  Positioned(
-                    left: 78,
-                    top: 8,
-                    child: IconButton(
-                      splashRadius: 0.1,
-                      icon: Image.asset(
-                        'assets/icplant.png',
-                        width: 27,
-                        height: 27,
-                      ),
-                      onPressed: () {
-                        print("clicked Button plant");
+                 BtDrawer(),
+                  
+//  --------------------------------------------------------------------------------
 
-                        Navigator.pushReplacement(
+            BtPlant(
+              page: (){
+                 Navigator.pushReplacement(
                           context,
                           PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) =>
-                                Sip(),
+                            pageBuilder: (context, animation1, animation2) => Sip(),
                             transitionDuration: Duration(seconds: 0),
                           ),
                         );
-                      },
-                      iconSize: 16,
-                      color: Colors.white,
-                    ),
-                  ),
+              },
+              ),
 
-// --------------------------------------
+ // ---------------------------------------------------------------------------------------
 
                   Positioned(
                     left: 160,
@@ -131,61 +120,32 @@ class _PersonalGDState extends State<PersonalGD> {
                     ),
                   ),
 
-                  Positioned(
-                    left: 240,
-                    top: 8,
-                    child: IconButton(
-                      splashRadius: 0.1,
-                      icon: Image.asset(
-                        'assets/icon4.png',
-                        width: 27,
-                        height: 27,
-                      ),
-                      onPressed: () {
-                        print("clicked Button mood");
+  //---------------------------------------------------------------------------------
 
-                        Navigator.pushReplacement(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) =>
-                                Gab(),
-                            transitionDuration: Duration(seconds: 0),
-                          ),
-                        );
-                      },
-                      iconSize: 28,
-                      color: Colors.white,
+                  BtMood(
+                    page: (){
+                      Navigator.pushReplacement(
+                   context, 
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) => Gab(),
+                        transitionDuration: Duration(seconds: 0),
                     ),
+                    );
+                    },
                   ),
+
+//------------------------------------------------------------------------------------------------
 
                   Positioned(
                     top: 8,
                     left: 330,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          shape: BoxShape.circle, color: Colors.white12),
-                      height: 50,
-                      width: 50,
-                    ),
+                    child: Highlight()
                   ),
 
-                  Positioned(
-                    left: 330,
-                    top: 8,
-                    child: IconButton(
-                      splashRadius: 0.1,
-                      icon: Image.asset(
-                        'assets/icon5.png',
-                        width: 27,
-                        height: 27,
-                      ),
-                      onPressed: () {
-                        print("clicked Button graph");
-                      },
-                      iconSize: 28,
-                      color: Colors.white,
-                    ),
-                  ),
+                  BtGraph()
+
+  //-------------------------------------------------------------------------------------------------
+
                 ],
               ), // Stack of bottom Appbar
 
@@ -196,7 +156,8 @@ class _PersonalGDState extends State<PersonalGD> {
         ),
       ),
 
-      //------------------BODY BODY BODY----------------------//
+  //__________________________________BODY-----BODY-------BODY________________________________//
+
       body: ListView(children: [
         Container(
           width: double.infinity,
@@ -302,30 +263,29 @@ class _PersonalGDState extends State<PersonalGD> {
           txt: 'Take a note',
           ic: Icons.note,
         ),
-         CommonText(
+        CommonText(
           txt: 'Your last journal',
         ),
         IcButton(
           txt: 'Write a journal',
           ic: Icons.article,
         ),
-         CommonText(
+        CommonText(
           txt: '7 days mood chart',
         ),
         IcButton(
           txt: 'Mood Entry',
           ic: Icons.mood,
         ),
-         CommonText(
+        CommonText(
           txt: '7 days sleep chart',
         ),
         IcButton(
           txt: 'Sleep Entry',
           ic: Icons.nights_stay,
         ),
-         CommonText(
-          txt: 'This month finance summary'),
-           Container(
+        CommonText(txt: 'This month finance summary'),
+        Container(
           width: double.infinity,
           height: 150,
           margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
@@ -335,7 +295,7 @@ class _PersonalGDState extends State<PersonalGD> {
               child: Row(
                 children: [
                   Image.asset(
-                    'assets/imgpgd1.png',
+                    'assets/imgpgd2.png',
                     height: 130,
                   ),
                   Padding(
@@ -345,12 +305,12 @@ class _PersonalGDState extends State<PersonalGD> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('Expense 0 \n Income 0 \n Net 0',style: TextStyle(
-                       fontSize: 20,fontWeight: FontWeight.w500
-                     
-                      ),),
+                      Text(
+                        'Expense 0\nIncome 0\nNet 0',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      ),
                       Row(children: [
-                        
                         Text('Money Dairy'),
                       ]),
                     ],
@@ -358,10 +318,78 @@ class _PersonalGDState extends State<PersonalGD> {
                 ],
               )),
         ),
+        CommonText(txt: 'This month finance summary'),
+        Container(
+          width: double.infinity,
+          height: 100,
+          margin: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusDirectional.circular(10)),
+              child: Row(
+                children: [
+                  Image.asset(
+                    'assets/manwithplant.png',
+                    height: 90,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 15),
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Self Improvement Program',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.w500),
+                      ),
+                      Row(children: [
+                        Text('Improve your life, one step a day'),
+                      ]),
+                    ],
+                  )
+                ],
+              )),
+        ),
+        Card(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadiusDirectional.circular(10)),
+          margin: EdgeInsets.fromLTRB(25, 20, 25, 0),
+          color: Color.fromRGBO(55, 71, 79, 2),
+          child: Container(
+            height: 65,
+            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            child: ListTile(
+              onTap: () {},
+              leading: Icon(
+                Icons.more_time,
+                size: 30,
+                color: Colors.white,
+              ),
+              title: Text(
+                "Free trial for 7 days",
+                style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+              subtitle: Text("Limited time offer",
+                  style: TextStyle(fontSize: 12, color: Colors.white)),
+            ),
+          ),
+        ),
+        SizedBox(height: 50,),
       ]),
     );
   }
 }
+
+
+//////////////////// --------------------------CUSTOM WIDGETS-----------------/////////////////////////////
+
+// This class is used for the text in between the cards
 
 class CommonText extends StatelessWidget {
   final String txt;
@@ -386,6 +414,8 @@ class CommonText extends StatelessWidget {
     );
   }
 }
+
+// This class is used for creating the cards
 
 class CommonCard extends StatelessWidget {
   final String imgurl;
@@ -422,17 +452,20 @@ class IcButton extends StatelessWidget {
   const IcButton({this.ic, this.txt});
   @override
   Widget build(BuildContext context) {
-        final clr = Color.fromRGBO(55, 71, 79, 2);
+    final clr = Color.fromRGBO(55, 71, 79, 2);
 
     return FlatButton(
       onPressed: () {},
       child: Container(
-        margin: EdgeInsets.only(left: 20, top: 12, bottom: 25),
+          margin: EdgeInsets.only(left: 20, top: 12, bottom: 25),
           padding: EdgeInsets.fromLTRB(0, 14, 0, 10),
           child: Row(
             children: [
 
-              Icon(ic,
+
+
+              Icon(
+                ic,
                 size: 18,
               ),
               Padding(
@@ -440,10 +473,8 @@ class IcButton extends StatelessWidget {
               ),
               Text(
                 '$txt',
-                style: TextStyle(fontSize: 17,
-                fontWeight: FontWeight.w400,
-                color: clr),
-
+                style: TextStyle(
+                    fontSize: 17, fontWeight: FontWeight.w400, color: clr),
               ),
             ],
           )),

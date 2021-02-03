@@ -1,6 +1,8 @@
 import 'package:GoodApp/GoodAppBundles.dart';
 import 'package:GoodApp/PersonalGrowthDashboard.dart';
 import 'package:GoodApp/Sip.dart';
+import 'package:GoodApp/customDrawer.dart';
+import 'package:GoodApp/navBarButtons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
@@ -12,6 +14,7 @@ class Home extends StatelessWidget {
     final clr = Color.fromRGBO(55, 71, 79, 2);
  FlutterStatusbarcolor.setNavigationBarColor(Color.fromRGBO(55, 71, 79, 2));
     return Scaffold(
+      drawer: CustomDrawer(),
       
       body: Column(
         children: [
@@ -92,45 +95,27 @@ class Home extends StatelessWidget {
               Container( 
                 child:Stack(children: [
                   
-                        
+  //_________________________________BOTTOM NAVIGATION BAR BUTTONS______________________________//                       
 
-                  Positioned(left: 3,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Icon(Icons.format_list_bulleted_sharp),
-                  onPressed: () {print("clicked Drawer");
-                                //  Navigator.push(context, 
-                                //  MaterialPageRoute(builder: (context){
-                                //    return Scaffold(drawer: Drawer(),); 
-                                //  }
-
-                                //  ));
-                                },
-                  iconSize: 30,
-                  color: Colors.white,
-                ), ),
-//  -------------------------------------
+                  BtDrawer(),
+                  
+  //  -----------------------------------------------------------------------------
 
                          
                      
-                  Positioned(left: 78,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Image.asset('assets/icplant.png',width: 27,height: 27,),
-                  onPressed: () {print("clicked Button plant");
-                  Navigator.pushReplacement(
+                 BtPlant(
+                   page: (){
+                     Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => Sip(),
                         transitionDuration: Duration(seconds: 0),
                     ),
                     );
-                  },
-                  iconSize: 16,
-                  color: Colors.white,
-                ), ),
+                   },
+                 ),
 
-// --------------------------------------
+  // --------------------------------------------------------------------------------
 
 
 
@@ -152,48 +137,37 @@ class Home extends StatelessWidget {
                   color: Colors.white,
                 ), ),
 
-                
-                  Positioned(left: 240,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Image.asset('assets/icon4.png',width: 27,height: 27,),
-                  onPressed: () {print("clicked Button mood");
-                  
-          Navigator.pushReplacement(
+  //------------------------------------------------------------------------------             
+
+                 BtMood(
+                   page: (){
+                     Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => Gab(),
                         transitionDuration: Duration(seconds: 0),
                     ),
                     );
+                   },
+                 ),
 
-                  },
-                  iconSize: 28,
-                  color: Colors.white,
-                ), ),
+  //----------------------------------------------------------------------------------
 
 
                         
                      
-                  Positioned(left: 330,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Image.asset('assets/icon5.png',width: 27,height: 27,),
-                  onPressed: () {print("clicked Button graph");
-                             Navigator.pushReplacement(
+                  BtGraph(
+                    page:(){ Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => PersonalGD(),
                         transitionDuration: Duration(seconds: 0),
                     ),
                     );
-                    
-                 
-                 
-                  },
-                  iconSize: 28,
-                  color: Colors.white,
-                ), ),
+                    }
+                  ),
+
+  //-----------------------------------------------------------------------------------------
 
                 ],
                 ), // Stack of bottom Appbar          
