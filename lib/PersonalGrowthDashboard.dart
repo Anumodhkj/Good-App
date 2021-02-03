@@ -1,12 +1,9 @@
 import 'package:GoodApp/GoodAppBundles.dart';
 import 'package:GoodApp/Sip.dart';
 import 'package:GoodApp/bottomSheet.dart';
-
 import 'package:GoodApp/customDrawer.dart';
-import 'package:GoodApp/navBarButtons.dart';
-
 import 'package:GoodApp/goodApp.dart';
-
+import 'package:GoodApp/navBarButtons.dart';
 import 'package:GoodApp/smallBottomsheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
@@ -118,7 +115,7 @@ class _PersonalGDState extends State<PersonalGD> {
                       icon: Icon(Icons.apps),
                       onPressed: () {
                         print("clicked Button grid");
-                        Navigator.pushReplacement(
+                          Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => GoodApp(),

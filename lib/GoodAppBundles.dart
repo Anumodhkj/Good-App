@@ -1,12 +1,9 @@
 import 'package:GoodApp/PersonalGrowthDashboard.dart';
 import 'package:GoodApp/Sip.dart';
 import 'package:GoodApp/bottomSheet.dart';
-
 import 'package:GoodApp/customDrawer.dart';
-import 'package:GoodApp/navBarButtons.dart';
-
 import 'package:GoodApp/goodApp.dart';
-
+import 'package:GoodApp/navBarButtons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
@@ -25,7 +22,19 @@ class _GabState extends State<Gab> {
     FlutterStatusbarcolor.setNavigationBarColor(Color.fromRGBO(55, 71, 79, 2));
     return Scaffold(
       drawer: CustomDrawer(),
-      appBar: AppBar(      
+      appBar: AppBar(
+        leadingWidth: .01,
+        leading:Builder(
+      builder: (BuildContext context) {
+       return IconButton(
+         iconSize: .01,
+          icon: const Icon(Icons.arrow_drop_up),
+         onPressed: (){},
+          // { Scaffold.of(contextt).openDrawer(); },
+          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+        );
+     },
+   ),      
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
         backgroundColor: Color.fromRGBO(55, 71, 79, 2),
@@ -45,6 +54,8 @@ class _GabState extends State<Gab> {
       mini: true,
       ),
       floatingActionButtonLocation:FloatingActionButtonLocation.endDocked,
+
+  //__________________________________BOTTOM NAVIGATION BAR____________________________________//
       
       bottomNavigationBar: BottomAppBar(
       shape: CircularNotchedRectangle(),
@@ -61,7 +72,7 @@ class _GabState extends State<Gab> {
               Container( 
                 child:Stack(children: [
                   
-                        
+   //_________________________________BOTTOM NAVIGATION BAR BUTTONS________________________________//
 
                 Positioned(left: 3,top: 8, 
                   child: BtDrawer(),
@@ -87,14 +98,14 @@ class _GabState extends State<Gab> {
                   color: Colors.white,
                 ), ),
 
-// --------------------------------------
+// ---------------------------------------------------------------------------
 
                   Positioned(left: 160,top: 8, child: 
                 IconButton(
                   splashRadius: 0.1,
                   icon: Icon(Icons.apps),
                   onPressed: () {print("clicked Button grid");
-                   Navigator.pushReplacement(
+                  Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => GoodApp(),
@@ -105,7 +116,7 @@ class _GabState extends State<Gab> {
                   iconSize: 28,
                   color: Colors.white,
                 ), ),
-
+  //----------------------------------------------------------------------------------
     Positioned(top: 8,left: 240, 
                     child:
                    Highlight()
