@@ -1,8 +1,12 @@
 import 'package:GoodApp/GoodAppBundles.dart';
 import 'package:GoodApp/PersonalGrowthDashboard.dart';
 import 'package:GoodApp/bottomSheet.dart';
+
 import 'package:GoodApp/customDrawer.dart';
 import 'package:GoodApp/navBarButtons.dart';
+
+import 'package:GoodApp/goodApp.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
@@ -68,6 +72,7 @@ class _SipState extends State<Sip> {
 
 // --------------------------------------
 
+
                   Positioned(
                     left: 160,
                     top: 8,
@@ -79,6 +84,39 @@ class _SipState extends State<Sip> {
                       },
                       iconSize: 28,
                       color: Colors.white,
+
+
+
+
+                  Positioned(left: 160,top: 8, child: 
+                IconButton(
+                  splashRadius: 0.1,
+                  icon: Icon(Icons.apps),
+                  onPressed: () {print("clicked Button grid");
+                  Navigator.pushReplacement(
+                   context, 
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) => GoodApp(),
+                        transitionDuration: Duration(seconds: 0),
+                    ),
+                    );},
+                  iconSize: 28,
+                  color: Colors.white,
+                ), ),
+
+                
+                  Positioned(left: 240,top: 8, child: 
+                IconButton(
+                  splashRadius: 0.1,
+                  icon: Image.asset('assets/icon4.png',width: 27,height: 27,),
+                  onPressed: () {print("clicked Button mood");
+                  
+          Navigator.pushReplacement(
+                   context, 
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation1, animation2) => Gab(),
+                        transitionDuration: Duration(seconds: 0),
+
                     ),
                   ),
 
