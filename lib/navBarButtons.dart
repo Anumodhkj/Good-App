@@ -57,10 +57,37 @@ class _BtPlantState extends State<BtPlant> {
           width: 27,
           height: 27,
         ),
-        onPressed: widget.page,
+        onPressed:widget.page,
         iconSize: 16,
         color: Colors.white,
       ),
+    );
+  }
+}
+
+//___________________________________BUTTON FOR GOOD APP____________________________________________//
+
+class BtGrid extends StatefulWidget {
+  final void Function() page;
+  BtGrid({this.page});
+  @override
+  _BtGridState createState() => _BtGridState();
+}
+
+class _BtGridState extends State<BtGrid> {
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      left: 160,
+      top: 8,
+      child: IconButton(
+        color: Colors.white,
+        disabledColor: Colors.white,
+        splashRadius: 0.1,
+        icon: Icon(Icons.apps),
+        onPressed: widget.page,
+        iconSize: 28,
+       ),
     );
   }
 }

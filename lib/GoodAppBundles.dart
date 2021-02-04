@@ -74,90 +74,61 @@ class _GabState extends State<Gab> {
                   
    //_________________________________BOTTOM NAVIGATION BAR BUTTONS________________________________//
 
-                Positioned(left: 3,top: 8, 
-                  child: BtDrawer(),
-                 ),
-//  -------------------------------------
+                 BtDrawer(),
+                 
+  //  ----------------------------------------------------------------------
 
-                  Positioned(left: 78,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Image.asset('assets/icplant.png',width: 27,height: 27,),
-                  onPressed: () {print("clicked Button plant");
-                  
-                  Navigator.pushReplacement(
+                 BtPlant(
+                   page: (){
+                     Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => Sip(),
                         transitionDuration: Duration(seconds: 0),
                     ),
                     );
+                   },
+                 ),
 
-                  },
-                  iconSize: 16,
-                  color: Colors.white,
-                ), ),
+  // ---------------------------------------------------------------------------
 
-// ---------------------------------------------------------------------------
-
-                  Positioned(left: 160,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Icon(Icons.apps),
-                  onPressed: () {print("clicked Button grid");
-                  Navigator.pushReplacement(
+                  BtGrid(
+                    page: (){
+                      Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => GoodApp(),
                         transitionDuration: Duration(seconds: 0),
                     ),
                     );
-                  },
-                  iconSize: 28,
-                  color: Colors.white,
-                ), ),
+                    },
+                  ),
+
   //----------------------------------------------------------------------------------
+
     Positioned(top: 8,left: 240, 
                     child:
                    Highlight()
                           ),
                  
-                  Positioned(left: 240,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Image.asset('assets/icon4.png',width: 27,height: 27,),
-                  onPressed: () {print("clicked Button mood");
-                  
-         
+                  BtMood(),
 
-                  },
-                  iconSize: 28,
-                  color: Colors.white,
-                ), ),
-
-
+  //----------------------------------------------------------------------------------
                         
-                     
-                  Positioned(left: 330,top: 8, child: 
-                IconButton(
-                  splashRadius: 0.1,
-                  icon: Image.asset('assets/icon5.png',width: 27,height: 27,),
-                  onPressed: () {print("clicked Button graph");
-                             Navigator.pushReplacement(
+                  BtGraph(
+                    page: (){
+                      Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => PersonalGD(),
                         transitionDuration: Duration(seconds: 0),
                     ),
                     );
-                    
-                 
-                 
-                  },
-                  iconSize: 28,
-                  color: Colors.white,
-                ), ),
+                    },
+                  ),
 
+  //------------------------------------------------------------------------------------
+  
                 ],
                 ), // Stack of bottom Appbar          
                 

@@ -107,25 +107,16 @@ class _PersonalGDState extends State<PersonalGD> {
 
  // ---------------------------------------------------------------------------------------
 
-                  Positioned(
-                    left: 160,
-                    top: 8,
-                    child: IconButton(
-                      splashRadius: 0.1,
-                      icon: Icon(Icons.apps),
-                      onPressed: () {
-                        print("clicked Button grid");
-                          Navigator.pushReplacement(
+                  BtGrid(
+                    page: (){
+                       Navigator.pushReplacement(
                    context, 
                       PageRouteBuilder(
                         pageBuilder: (context, animation1, animation2) => GoodApp(),
                         transitionDuration: Duration(seconds: 0),
                     ),
                     );
-                      },
-                      iconSize: 28,
-                      color: Colors.white,
-                    ),
+                    },
                   ),
 
   //---------------------------------------------------------------------------------
