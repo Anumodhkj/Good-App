@@ -3,6 +3,7 @@ import 'package:GoodApp/PersonalGrowthDashboard.dart';
 import 'package:GoodApp/Sip.dart';
 import 'package:GoodApp/bottomSheet.dart';
 import 'package:GoodApp/cardandlist.dart';
+import 'package:GoodApp/customDrawer.dart';
 import 'package:GoodApp/navBarButtons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
@@ -221,7 +222,7 @@ class _GoodAppState extends State<GoodApp> {
         ],
       ),
       
-
+  drawer: CustomDrawer(),
 
     );
   }
