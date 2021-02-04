@@ -1,5 +1,4 @@
-
-import 'package:GoodApp/home.dart';
+import 'package:GoodApp/splashScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -8,5 +7,6 @@ void main() {
     MaterialApp(
        debugShowCheckedModeBanner: false,
        home:Home(),));
+       home:Splashscreen(),));
 }
 
