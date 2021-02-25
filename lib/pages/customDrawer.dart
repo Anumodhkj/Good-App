@@ -3,19 +3,23 @@ import 'package:flutter/material.dart';
 class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final height=MediaQuery.of(context).size.height;
+    final width=MediaQuery.of(context).size.width;
     return SafeArea(
       child: Drawer(
         child: ListView(padding: EdgeInsets.all(15), 
         children: [SizedBox( width: double.infinity,
-            height: 80,
+           
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-              Image.asset('assets/imgdrawer.png', width: 180),
-              Padding(
-                padding: EdgeInsets.only(bottom: 5),
+              Image.asset('assets/imgdrawer.png',
+              width: width*.3,
               ),
-              Text('  Stay Happy, Healthy and Productive'),
+              Padding(
+                padding: EdgeInsets.only(bottom:height*0.02,top: height*0.010 ),
+              
+              child: Text('  Stay Happy, Healthy and Productive'),),
             ]),
           ),
           DrawerItems(
@@ -95,7 +99,7 @@ class CustomDrawer extends StatelessWidget {
             title: 'Email us',
           ),
            DrawerItems(
-            icon: Icons.question_answer_rounded,
+            icon: Icons.contact_support_rounded,
             title: 'Feedback',
           ),
           DrawerText(
